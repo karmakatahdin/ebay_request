@@ -14,7 +14,7 @@ class EbayRequest::Trading < EbayRequest::Base
 
   def payload(callname, request)
     key_converter = :camelcase
-    request = Gyoku.xml(request, key_converter: key_converter)
+    request = Gyoku.xml(request, key_converter: key_converter, unwrap: [:itemSpecifics])
 
     %(<?xml version="1.0" encoding="utf-8"?>\
 <#{callname}Request xmlns="urn:ebay:apis:eBLBaseComponents">\
